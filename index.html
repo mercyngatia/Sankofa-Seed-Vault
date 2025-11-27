@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sankofa Seed Vault - Preserving Our Heritage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="css/style.css"></head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-seedling"></i>
+                    Sankofa Seed Vault
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#seeds">Browse Seeds</a></li>
+                    <li><a href="#community">Community Map</a></li>
+                    <li><a href="#story">Our Story</a></li>
+                </ul>
+                
+                <div class="auth-buttons">
+                    <button class="btn btn-secondary" id="loginBtn">Sign In</button>
+                </div>
+                
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="mainContent">
+        <!-- Homepage Content -->
+        <div id="homepageContent">
+            <!-- Hero Section -->
+            <section class="hero" id="home">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>Preserve Our Heritage, One Seed at a Time</h1>
+                        <p>The community-powered vault for traditional African seeds. Reclaim cultural identity through the preservation of ancestral knowledge.</p>
+                        <div class="hero-buttons">
+                            <button class="btn" id="browseSeedsBtn">Find Seeds</button>
+                            <button class="btn btn-secondary" id="addSeedBtn">Add Your Seed</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="section">
+                <div class="container">
+                    <h2 class="section-title">Why Our Seed Vault</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h3>Seed Keeper Verified</h3>
+                            <p>Every seed is authenticated by recognized elders and seed keepers in our community.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-qrcode"></i>
+                            </div>
+                            <h3>Rich Seed Stories</h3>
+                            <p>Each seed comes with a QR code linking to audio stories from our elders.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <h3>Community Network</h3>
+                            <p>Connect with other seed savers in your region and build resilience together.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Categories Section -->
+            <section class="section">
+                <div class="container">
+                    <h2 class="section-title">Traditional Seed Categories</h2>
+                    <div class="categories-grid">
+                        <div class="category-card">
+                            <div class="category-header">
+                                <h3>Indigenous Grains</h3>
+                            </div>
+                            <div class="category-body">
+                                <ul class="category-seeds">
+                                    <li>Teff</li>
+                                    <li>Fonio</li>
+                                    <li>African Rice</li>
+                                    <li>Guinea Millet</li>
+                                    <li>Sorghum</li>
+                                </ul>
+                                <p class="category-note">Drought-resistant, nutrient-dense staples predating colonialism.</p>
+                                <button class="btn btn-outline category-explore-btn" data-category="grain" style="width: 100%;">Explore Grains</button>
+                            </div>
+                        </div>
+                        
+                        <div class="category-card">
+                            <div class="category-header">
+                                <h3>Indigenous Vegetables</h3>
+                            </div>
+                            <div class="category-body">
+                                <ul class="category-seeds">
+                                    <li>Okra</li>
+                                    <li>Jute Mallow</li>
+                                    <li>Cowpea Leaves</li>
+                                    <li>Amaranth</li>
+                                    <li>Spider Plant</li>
+                                </ul>
+                                <p class="category-note">Okra's name derives from Igbo "ókùrù"; many were domesticated in Africa.</p>
+                                <button class="btn btn-outline category-explore-btn" data-category="vegetable" style="width: 100%;">Explore Vegetables</button>
+                            </div>
+                        </div>
+                        
+                        <div class="category-card">
+                            <div class="category-header">
+                                <h3>Tubers & Roots</h3>
+                            </div>
+                            <div class="category-body">
+                                <ul class="category-seeds">
+                                    <li>Yams</li>
+                                    <li>African Yam Bean</li>
+                                </ul>
+                                <p class="category-note">True yams are native to West Africa, distinct from sweet potatoes.</p>
+                                <button class="btn btn-outline category-explore-btn" data-category="tuber" style="width: 100%;">Explore Tubers</button>
+                            </div>
+                        </div>
+                        
+                        <div class="category-card">
+                            <div class="category-header">
+                                <h3>Fruits & Nuts</h3>
+                            </div>
+                            <div class="category-body">
+                                <ul class="category-seeds">
+                                    <li>Baobab</li>
+                                    <li>Tamarind</li>
+                                    <li>Oil Palm</li>
+                                    <li>Hibiscus</li>
+                                    <li>Kola Nut</li>
+                                    <li>Watermelon</li>
+                                </ul>
+                                <p class="category-note">Baobab fruit has more vitamin C than oranges.</p>
+                                <button class="btn btn-outline category-explore-btn" data-category="fruit" style="width: 100%;">Explore Fruits</button>
+                            </div>
+                        </div>
+                        
+                        <div class="category-card">
+                            <div class="category-header">
+                                <h3>Legumes & Seeds</h3>
+                            </div>
+                            <div class="category-body">
+                                <ul class="category-seeds">
+                                    <li>Bambara Groundnut</li>
+                                    <li>Black-eyed Peas</li>
+                                    <li>Sesame</li>
+                                </ul>
+                                <p class="category-note">Protein-rich staples that have fed communities for centuries.</p>
+                                <button class="btn btn-outline category-explore-btn" data-category="legume" style="width: 100%;">Explore Legumes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="section" style="background-color: var(--primary); color: white; text-align: center;">
+                <div class="container">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Ready to Preserve Heritage?</h2>
+                    <p style="font-size: 1.2rem; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                        Join our community of seed keepers and help preserve traditional knowledge for future generations.
+                    </p>
+                    <button class="btn btn-secondary" id="exploreVaultBtn">Explore the Vault</button>
+                </div>
+            </section>
+
+            <!-- Seeds Section -->
+            <section class="section seeds-section" id="seeds">
+                <div class="container">
+                    <h2 class="section-title">Browse Our Seed Vault</h2>
+                    <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem;">
+                        Discover traditional African seeds, each with its own story and cultural significance.
+                    </p>
+                    
+                    <div class="filter-bar">
+                        <div class="search-box">
+                            <input type="text" placeholder="Search by name, region, or traditional name...">
+                            <button><i class="fas fa-search"></i></button>
+                        </div>
+                        
+                        <div class="filter-options">
+                            <select id="type-filter">
+                                <option value="">All Types</option>
+                                <option value="grain">Grains</option>
+                                <option value="vegetable">Vegetables</option>
+                                <option value="tuber">Tubers & Roots</option>
+                                <option value="fruit">Fruits & Nuts</option>
+                                <option value="legume">Legumes & Seeds</option>
+                            </select>
+                            
+                            <select id="region-filter">
+                                <option value="">All Regions</option>
+                                <option value="west">West Africa</option>
+                                <option value="east">East Africa</option>
+                                <option value="south">Southern Africa</option>
+                                <option value="central">Central Africa</option>
+                            </select>
+                            
+                            <select id="verified-filter">
+                                <option value="">All Seeds</option>
+                                <option value="verified">Verified Only</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="seeds-grid" id="seeds-container">
+                        <!-- Seed cards will be dynamically inserted here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Community Section -->
+            <section class="section community-section" id="community">
+                <div class="container">
+                    <h2 class="section-title">Community Network</h2>
+                    <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem;">
+                        Discover seed savers in your region and connect with our growing network of heritage seed keepers.
+                    </p>
+                    
+                    <div class="community-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" id="seedKeepersCount">45</div>
+                            <div class="stat-label">Seed Keepers</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-number">125</div>
+                            <div class="stat-label">Heritage Seeds</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-number" id="regionsCount">12</div>
+                            <div class="stat-label">Regions</div>
+                        </div>
+                    </div>
+                    
+                    <div class="community-content">
+                        <div class="community-map-container">
+                            <div id="communityMap"></div>
+                            <div class="map-controls">
+                                <button id="resetMapView">Reset View</button>
+                                <button id="locateMe">Find Me</button>
+                            </div>
+                        </div>
+                        
+                        <div class="communities-list">
+                            <div class="community-card">
+                                <div class="community-header">
+                                    <div class="community-name">Lagos Region</div>
+                                    <div class="community-stats-small">
+                                        <span>12 Keepers</span>
+                                        <span>34 Seeds</span>
+                                    </div>
+                                </div>
+                                <div class="community-description">
+                                    Active seed saving community preserving traditional varieties and sharing knowledge across generations.
+                                </div>
+                            </div>
+                            
+                            <div class="community-card">
+                                <div class="community-header">
+                                    <div class="community-name">Nairobi Area</div>
+                                    <div class="community-stats-small">
+                                        <span>8 Keepers</span>
+                                        <span>21 Seeds</span>
+                                    </div>
+                                </div>
+                                <div class="community-description">
+                                    Active seed saving community preserving traditional varieties and sharing knowledge across generations.
+                                </div>
+                            </div>
+                            
+                            <div class="community-card">
+                                <div class="community-header">
+                                    <div class="community-name">Dar es Salaam</div>
+                                    <div class="community-stats-small">
+                                        <span>15 Keepers</span>
+                                        <span>42 Seeds</span>
+                                    </div>
+                                </div>
+                                <div class="community-description">
+                                    Active seed saving community preserving traditional varieties and sharing knowledge across generations.
+                                </div>
+                            </div>
+                            
+                            <div class="community-card">
+                                <div class="community-header">
+                                    <div class="community-name">Accra Community</div>
+                                    <div class="community-stats-small">
+                                        <span>10 Keepers</span>
+                                        <span>28 Seeds</span>
+                                    </div>
+                                </div>
+                                <div class="community-description">
+                                    Active seed saving community preserving traditional varieties and sharing knowledge across generations.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 40px;">
+                        <button class="btn" id="joinLocalCommunityBtn">Join Your Local Community</button>
+                        <div style="margin-top: 20px; font-size: 0.9rem; color: var(--gray);">
+                            <p><i class="fas fa-map-marker-alt"></i> Add yourself to the community map • Connect with local seed keepers</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Story Section -->
+            <section class="section story-section" id="story">
+                <div class="container">
+                    <h2 class="section-title">Our Story</h2>
+                    <div class="story-content">
+                        <p class="story-intro">
+                            The Sankofa Seed Vault was born from a simple yet profound realization: our traditional seeds are disappearing, and with them, generations of cultural knowledge and food sovereignty.
+                        </p>
+                        
+                        <p class="story-intro">
+                            "Sankofa" is a word from the Akan people of Ghana. It means "go back and fetch it" - a reminder that we must reach back to our roots to move forward wisely. This principle guides everything we do.
+                        </p>
+                        
+                        <p class="story-intro">
+                            For too long, our communities have faced pressure to adopt standardized, corporate, or government-owned seeds that disconnect us from our heritage. Traditional seeds carry more than genes - they carry stories, ceremonies, recipes, and the wisdom of our ancestors.
+                        </p>
+                        
+                        <div class="values-grid">
+                            <div class="value-card">
+                                <div class="value-icon">
+                                    <i class="fas fa-history"></i>
+                                </div>
+                                <h3>Cultural Heritage</h3>
+                                <p>Every seed has a story. We preserve not just the seeds, but the cultural knowledge and traditions that make them meaningful.</p>
+                            </div>
+                            
+                            <div class="value-card">
+                                <div class="value-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h3>Food Sovereignty</h3>
+                                <p>Communities should control their own food systems. Traditional seeds give us independence from external pressures.</p>
+                            </div>
+                            
+                            <div class="value-card">
+                                <div class="value-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h3>Community Trust</h3>
+                                <p>Our Seed Keeper verification system ensures authenticity and builds a network resistant to corporate infiltration.</p>
+                            </div>
+                            
+                            <div class="value-card">
+                                <div class="value-icon">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                                <h3>Resilience</h3>
+                                <p>Traditional seeds are adapted to local conditions and resistant to many challenges that affect standardized varieties.</p>
+                            </div>
+                        </div>
+                        
+                        <h3 style="margin: 40px 0 20px; color: var(--primary);">What Makes Us Different</h3>
+                        
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <div class="feature-icon-small">
+                                    <i class="fas fa-music"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Seed Stories, Not Just Seeds</h4>
+                                    <p>Each seed comes with audio recordings from elders, preserving oral traditions and stories in local languages.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon-small">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Community Verification</h4>
+                                    <p>Seed Keepers authenticate varieties, creating a trusted network that protects against standardized or modified seeds.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon-small">
+                                    <i class="fas fa-signal"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Offline-First Design</h4>
+                                    <p>Built for rural areas with limited connectivity. Critical information is accessible without constant internet access.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon-small">
+                                    <i class="fas fa-map"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Community Mapping</h4>
+                                    <p>Visualize the strength of our collective network while maintaining privacy and security for individual savers.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="story-quote">
+                            "We are not just saving seeds. We are saving our identity, our independence, and our future."
+                        </div>
+                        
+                        <div style="text-align: center; margin-top: 40px;">
+                            <h3 style="margin-bottom: 20px; color: var(--primary);">Join Our Movement</h3>
+                            <p style="margin-bottom: 30px;">
+                                Whether you're a farmer, gardener, elder with seed knowledge, or simply someone who cares about cultural preservation - you have a place in the Sankofa Seed Vault.
+                            </p>
+                            <button class="btn" id="joinMovementBtn">Join the Movement</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Seed Detail Page -->
+        <div class="seed-detail-page" id="seedDetailPage">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="#" id="backToBrowse"><i class="fas fa-arrow-left"></i> Back to Browse</a>
+                </div>
+                
+                <div class="seed-detail-container">
+                    <!-- Left Column: Seed Image and Actions -->
+                    <div class="seed-image-section">
+                        <img src="" alt="Seed Image" class="seed-image-large" id="detailSeedImage">
+                        
+                        <div class="seed-info-card">
+                            <div class="seed-header-large">
+                                <h1 class="seed-name-large" id="detailSeedName">Seed Name</h1>
+                            </div>
+                            
+                            <div class="seed-meta">
+                                <div class="meta-item">
+                                    <span class="meta-label">Traditional Name</span>
+                                    <span class="meta-value" id="detailTraditionalName">-</span>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-label">Region</span>
+                                    <span class="meta-value" id="detailRegion">-</span>
+                                </div>
+                            </div>
+                            
+                            <div class="action-buttons">
+                                <button class="btn" id="detailRequestSeedsBtn">Request Seeds</button>
+                                <button class="btn btn-outline" id="detailViewQrCodeBtn">View QR Code</button>
+                            </div>
+                            
+                            <div class="seed-keeper-large">
+                                <div class="keeper-avatar" id="detailKeeperAvatar">A</div>
+                                <div class="keeper-info">
+                                    <h4 id="detailKeeperName">Seed Keeper: </h4>
+                                    <p id="detailKeeperInfo">Verified community elder</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column: Seed Details -->
+                    <div class="seed-details-section">
+                        <!-- Memory Section -->
+                        <h2 class="detail-section-title">Memory from Keeper</h2>
+                        <div class="audio-player">
+                            <h4><i class="fas fa-headphones"></i> AI-Generated Audio from Keeper's story</h4>
+                            <div class="audio-controls">
+                                <button class="play-btn" id="detailPlayAudio">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                <div class="progress-bar">
+                                    <div class="progress" id="detailAudioProgress"></div>
+                                </div>
+                                <span class="audio-time" id="detailAudioTime">0:00</span>
+                            </div>
+                        </div>
+                        <p id="detailMemoryText">Memory text will appear here.</p>
+                        
+                        <!-- Cultural Significance -->
+                        <h2 class="detail-section-title">Cultural Significance</h2>
+                        <p id="detailCulturalSignificance">Cultural significance information will appear here.</p>
+                        
+                        <!-- Cultivation Guide -->
+                        <h2 class="detail-section-title">Cultivation Guide</h2>
+                        <div class="cultivation-grid" id="detailCultivationGrid">
+                            <!-- Cultivation items will be inserted here -->
+                        </div>
+                        <p><strong>Season:</strong> <span id="detailSeasonInfo">-</span></p>
+                        
+                        <!-- Traditional Uses -->
+                        <h2 class="detail-section-title">Traditional Uses</h2>
+                        <div class="uses-list" id="detailUsesList">
+                            <!-- Uses will be inserted here -->
+                        </div>
+                        
+                        <!-- Traditional Recipe -->
+                        <h2 class="detail-section-title">Traditional Recipe</h2>
+                        <div class="recipe-card">
+                            <h4 id="detailRecipeName">Recipe Name</h4>
+                            <p id="detailRecipeInstructions">Recipe instructions will appear here.</p>
+                        </div>
+                        
+                        <!-- CTA Section -->
+                        <div class="cta-section">
+                            <h3>Ready to Grow This Heritage Seed?</h3>
+                            <p>Connect with the keeper to request these seeds and continue the tradition of seed saving.</p>
+                            <button class="btn btn-secondary" id="detailCtaRequestBtn">Request Seeds from Keeper</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Sankofa Seed Vault</h3>
+                    <p>Preserving traditional African seeds and agricultural heritage through community-powered exchange.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#seeds">Browse Seeds</a></li>
+                        <li><a href="#community">Community Map</a></li>
+                        <li><a href="#story">Our Story</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Seed Saving Guide</a></li>
+                        <li><a href="#">Traditional Farming</a></li>
+                        <li><a href="#">Cultural Stories</a></li>
+                        <li><a href="#">Community Events</a></li>
+                        <li><a href="#">Get Involved</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> info@sankofaseeds.org</li>
+                        <li><i class="fas fa-phone"></i> +233 123 456 789</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Accra, Ghana</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 Sankofa Seed Vault. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Request Seeds Modal -->
+    <div class="modal" id="requestModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="requestModalTitle">Request Seeds from Keeper</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="requestModalDescription">Fill out this form to request seeds. The keeper will receive your information and contact you to arrange seed sharing.</p>
+                
+                <form id="requestForm">
+                    <div class="form-group">
+                        <label for="userName">Your Name</label>
+                        <input type="text" id="userName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userEmail">Email</label>
+                        <input type="email" id="userEmail" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userLocation">Your Location</label>
+                        <input type="text" id="userLocation" class="form-control" placeholder="City, Country" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userMessage">Message (Optional)</label>
+                        <textarea id="userMessage" class="form-control" rows="4" placeholder="Tell the keeper why you're interested in these seeds..."></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" id="cancelRequestBtn">Cancel</button>
+                        <button type="submit" class="btn">Send Request</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- QR Code Modal -->
+    <div class="modal" id="qrModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="qrModalTitle">QR Code for Seed</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body qr-modal-content">
+                <p>Scan this code to share or access the seed's full story</p>
+                <canvas id="qrCode"></canvas>
+                <p class="qr-instructions">Scan with any QR code reader to view this seed's story</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Sankofa Seed Vault</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="text-align: center; margin-bottom: 20px;">Join our community of seed keepers and preservers</p>
+                <div style="display: flex; margin-bottom: 20px; border-bottom: 1px solid #eee;">
+                    <button class="tab-btn" style="flex: 1; padding: 10px; background: none; border: none; border-bottom: 2px solid var(--primary); font-weight: 600;">Sign In</button>
+                    <button class="tab-btn" style="flex: 1; padding: 10px; background: none; border: none; color: var(--gray);">Sign Up</button>
+                </div>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" class="form-control" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" class="form-control" placeholder="......" required>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Sign In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal" id="signupModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Sankofa Seed Vault</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="text-align: center; margin-bottom: 20px;">Join our community of seed keepers and preservers</p>
+                <div style="display: flex; margin-bottom: 20px; border-bottom: 1px solid #eee;">
+                    <button class="tab-btn" style="flex: 1; padding: 10px; background: none; border: none; color: var(--gray);">Sign In</button>
+                    <button class="tab-btn" style="flex: 1; padding: 10px; background: none; border: none; border-bottom: 2px solid var(--primary); font-weight: 600;">Sign Up</button>
+                </div>
+                <form id="signupForm">
+                    <div class="form-group">
+                        <label for="signupName">Full Name</label>
+                        <input type="text" id="signupName" class="form-control" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupUsername">Username</label>
+                        <input type="text" id="signupUsername" class="form-control" placeholder="johndoe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email</label>
+                        <input type="email" id="signupEmail" class="form-control" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupLocation">Your Location</label>
+                        <input type="text" id="signupLocation" class="form-control" placeholder="City, Country" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" class="form-control" placeholder="......" required>
+                        <div class="password-strength">
+                            <div class="password-strength-bar" id="passwordStrengthBar"></div>
+                        </div>
+                        <div class="password-requirements" id="passwordRequirements">
+                            <div class="requirement" id="lengthReq">
+                                <i class="fas fa-times"></i>
+                                <span>At least 8 characters</span>
+                            </div>
+                            <div class="requirement" id="uppercaseReq">
+                                <i class="fas fa-times"></i>
+                                <span>At least one uppercase letter</span>
+                            </div>
+                            <div class="requirement" id="lowercaseReq">
+                                <i class="fas fa-times"></i>
+                                <span>At least one lowercase letter</span>
+                            </div>
+                            <div class="requirement" id="numberReq">
+                                <i class="fas fa-times"></i>
+                                <span>At least one number</span>
+                            </div>
+                            <div class="requirement" id="specialReq">
+                                <i class="fas fa-times"></i>
+                                <span>At least one special character</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;" id="signupSubmitBtn" disabled>Create Account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Seed Modal -->
+    <div class="modal" id="addSeedModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add Your Seed to the Vault</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="text-align: center; margin-bottom: 20px;">Share your heritage seed with the community</p>
+                <form id="addSeedForm">
+                    <div class="form-group">
+                        <label for="seedName">Seed Name</label>
+                        <input type="text" id="seedName" class="form-control" placeholder="e.g., Nigerian 'Ogu' Okra" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="seedTraditionalName">Traditional Name</label>
+                        <input type="text" id="seedTraditionalName" class="form-control" placeholder="e.g., Okwuru">
+                    </div>
+                    <div class="form-group">
+                        <label for="seedDescription">Description</label>
+                        <textarea id="seedDescription" class="form-control" rows="3" placeholder="Describe the seed, its characteristics, and importance..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="seedType">Type</label>
+                        <select id="seedType" class="form-control" required>
+                            <option value="">Select Type</option>
+                            <option value="grain">Grain</option>
+                            <option value="vegetable">Vegetable</option>
+                            <option value="tuber">Tuber & Root</option>
+                            <option value="fruit">Fruit & Nut</option>
+                            <option value="legume">Legume & Seed</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="seedRegion">Region</label>
+                        <select id="seedRegion" class="form-control" required>
+                            <option value="">Select Region</option>
+                            <option value="west">West Africa</option>
+                            <option value="east">East Africa</option>
+                            <option value="south">Southern Africa</option>
+                            <option value="central">Central Africa</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="seedStory">Seed Story</label>
+                        <textarea id="seedStory" class="form-control" rows="3" placeholder="Share the story behind this seed..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="seedMemory">Memory from Keeper</label>
+                        <textarea id="seedMemory" class="form-control" rows="3" placeholder="Share a personal memory related to this seed..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="seedCulturalSignificance">Cultural Significance</label>
+                        <textarea id="seedCulturalSignificance" class="form-control" rows="3" placeholder="Describe the cultural importance of this seed..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="seedUses">Traditional Uses (comma separated)</label>
+                        <input type="text" id="seedUses" class="form-control" placeholder="e.g., Soups, Stews, Medicinal">
+                    </div>
+                    <div class="form-group">
+                        <label for="seedRecipeName">Traditional Recipe Name</label>
+                        <input type="text" id="seedRecipeName" class="form-control" placeholder="e.g., Okra Soup">
+                    </div>
+                    <div class="form-group">
+                        <label for="seedRecipeInstructions">Recipe Instructions</label>
+                        <textarea id="seedRecipeInstructions" class="form-control" rows="3" placeholder="Describe how to prepare the traditional recipe..."></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" id="cancelAddSeedBtn">Cancel</button>
+                        <button type="submit" class="btn">Add Seed</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
