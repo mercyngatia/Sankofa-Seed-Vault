@@ -1,146 +1,137 @@
-🌱 Sankofa Seed Vault
+# Sankofa Seed Vault – Indigenous Seed Preservation Platform
 
-Preserving Africa’s Seeds, Stories, and Sovereignty
+Sankofa Seed Vault is a web-based platform designed to preserve, document, and share indigenous African seeds. It connects communities, seed keepers, and knowledge holders to protect Africa’s agricultural heritage and ensure food sovereignty for future generations.
 
-Overview
+## Live Demo
 
-The Sankofa Seed Vault is a cultural preservation project designed to protect and document indigenous African seeds. By combining technology, storytelling, mapping, and community verification, this platform helps keep Africa’s agricultural heritage alive for future generations.
+Visit Sankofa Seed Vault Website (https://sankofa-seed-vault.netlify.app/)  
+View Project Presentation (https://lesbijouxdoran.my.canva.site/sankofa-seed-vault-pitch-deck-template)
 
-This project highlights:
-
-Seed browsing
-
-Regional mapping
-
-Cultural storytelling
-
-Seed Keeper verification
-
-QR-based seed identity
-
-Key Features
-Seed Browser
-
-Search by name, category, or region
-
-Verified Seed badges
-
-Responsive seed cards
-
-Seed Categories
-Category	Examples
-Indigenous Grains	Finger Millet, Sorghum
-Vegetables	African Nightshade, Spider Plant
-Tubers & Roots	Cassava, Arrowroot
-Fruits & Nuts	Baobab, Tamarind
-Legumes	Cowpeas, Bambara Nuts
-Interactive Community Map (Leaflet.js)
-
-Displays seed savers across Africa
-
-“Locate Me” & “Reset Map” buttons
-
-Community region cards (Nairobi, Lagos, Accra, Dar es Salaam)
-
-Seed Stories
-
-Audio storytelling from elders
-
-QR codes linking to seed history
-
-Cultural significance notes
-
-Seed Keeper Verification
-
-Community-driven validation
-
-Icons showing trusted seed keepers
-
-Helps maintain authenticity
-
-Tech Stack
-Layer	Tools Used
-Frontend	HTML5, CSS3, JavaScript
-Mapping	Leaflet.js
-Icons	Font Awesome
-QR Codes	QRCode.js
-Version Control	Git + GitHub
-📂 Project Structure
-/project-root
-│── index.html
-│── css/
-│     ├── style.css
-│     ├── img/
-│── js/
-│     └── main.js
-│
-└── README.md
-
-How to Run Locally
-
-Clone the repository
-
-git clone https://github.com/mercyngatia/Sankofa-Seed-Vault.git
-
-
-Open project folder
-
-cd sankofa-seed-vault
-
-
-Open index.html in your browser
-
-Double-click
-
-Or launch using VS Code Live Server
-
-No backend required.
-
-Screenshots
-
+## Screenshots
 
 Home Page
-
+![Alt text](screenshots/home.png)
 
 Seed Browser
-
+![Alt text](screenshots/seed.png)
 
 Community Map
+![Alt text](screenshots/community.png)
 
+Our story
+![Alt text](screenshots/story.png)
 
-Future Enhancements
+*(Comming soon...!)
+Seed Stories Page
+Stories
 
-User accounts (Seed Keepers / Contributors)
+Seed Submission Form
+Seed Submission
 
-Seed upload form with images + audio
+Seed Keeper Directory
+Directory
 
-Real database (Firestore / Supabase) - Inprogress
+## Features
 
-Multilingual support
+* Seed Browser: Search and explore indigenous seeds by region, type, and cultural name
+* Seed Categories: Grains, Vegetables, Tubers, Fruits, Legumes
+* Interactive Map: Shows community seed keepers across Africa
+* Seed Stories: Audio narratives and QR-linked cultural histories
+* Verification System: Seeds validated by trusted elders and seed keepers
+* Responsive Design: Works across desktop and mobile
+* Offline-First Concept: Optimized for regions with limited connectivity
 
+## Technologies Used
 
-Contributing
+**Frontend:** HTML5, CSS3, JavaScript
+**Mapping:** Leaflet.js
+**Icons:** Font Awesome
+**QR Codes:** QRCode.js
+**Data Storage:** Client-side (no backend)
+**No External Dependencies:** All functionality runs in the browser
 
-Contributions, ideas, and cultural knowledge are welcome!
+## Project Structure
 
-Steps:
+```
+Sankofa-Seed-Vault/
+├── index.html            # Main application file
+├── css/
+│   └── style.css         # Stylesheet
+│   └── img 
+├── js/
+│   └── main.js           # JavaScript logic
+└── screenshots/          # Images used in README
+```
 
-Fork this repository
+## Setup Instructions
 
-Create a branch
+### 1. Clone or Download the Project
 
-Commit your changes
+```
+git clone <https://github.com/mercyngatia/Sankofa-Seed-Vault.git>
+cd Sankofa-Seed-Vault
+```
 
-Open a Pull Request
+### 2. Run the Application
 
-License
+* Open `index.html` in a web browser
+* No server required – works directly in the browser
 
-This project is licensed under ****** License.
+### 3. Using the Platform
 
-Acknowledgements
+* Browse seeds by type or region
+* View cultural notes and verification badges
+* Explore the interactive community map
+* Scan QR codes to access seed stories
+* Navigate the Seed Keeper Directory to discover contributors
 
-African elders & seed keepers
+## Data Storage
 
-Indigenous farmers
+Sankofa Seed Vault uses client-side storage and browser caching for:
 
-Open-source mapping contributors
+* Seed listings
+* Map markers
+* Story references
+* User interactions
+
+No data is transmitted to any server. The platform is fully client-side.
+
+## Browser Compatibility
+
+This application works in all modern browsers that support:
+
+* ES6 JavaScript
+* CSS Flexbox and Grid
+* Local or in-memory storage
+* Leaflet.js rendering
+
+## Customization
+
+You can customize Sankofa Seed Vault by modifying:
+
+* Colors and theme variables in `style.css`
+* Seed categories and data in `main.js`
+* Map settings in the Leaflet initialization
+* Content and layout in `index.html`
+
+## Future Enhancements
+
+Possible future improvements:
+
+* Database integration for real seed storage
+* User accounts for Seed Keepers
+* Seed image uploads
+* Multilingual language support
+* Community storytelling recordings
+* Admin dashboard for seed verification
+* Offline PWA functionality
+
+## License
+
+This project is open source.
+
+---
+
+Sankofa Seed Vault – Preserving Seeds, Preserving Identity
+
+---
